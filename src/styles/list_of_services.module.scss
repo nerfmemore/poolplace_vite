@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16rem;
+}
+
+.photo {
+    width: 800px;
+    height: 400px;
+}
+
+.service {
+    display: flex;
+    flex-direction: row;
+}
+
+.picture {
+    width: 800px;
+    height: 400px;
+    background-image: url('../assets/photopool.jpg');
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}

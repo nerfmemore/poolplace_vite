@@ -1,0 +1,57 @@
+.wrapper {
+
+}
+
+.title {
+    margin: 1rem;
+}
+
+.subtitle {
+    font-size: 39.81px;
+    font-weight: 700;
+    line-height: 53px;
+    margin: 0.5rem 0;
+}
+
+.map {
+    position: relative;
+}
+
+.contacts{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    background: rgba(42, 159, 222, .8)
+}
+
+.contacts_bot{
+    
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    background: rgba(42, 159, 222, .8)
+}
+
+
+.span {
+    font-weight: 500;
+    
+}
+
+.map_block {
+    position: relative;
+
+}
+
+@media screen and (max-width: 992px) {
+    .contacts {
+        display: none;
+    }
+}

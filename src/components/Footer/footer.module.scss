@@ -1,0 +1,62 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 2.5rem;
+    color: white;
+    background-color: #2A9FDE;
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+}
+
+.subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+}
+
+.span {
+
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .span {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+
+    .social {
+
+    }
+
+    .subtitle {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .span {
+
+    }
+}

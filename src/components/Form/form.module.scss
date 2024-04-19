@@ -1,0 +1,282 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 130px;
+    padding: 61px 84px;
+    margin: 0;
+    background-color: var(--color-blue-light);
+    border-radius: 8px;
+
+    color: var(--color-blue-normal);
+
+    
+}
+
+.description {
+    display: inline-block;
+    max-width: 470px;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 33.18px;
+    font-weight: 700;
+    line-height: 44px;
+}
+
+.past {
+    font-weight: 500;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    
+    .name {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .phone {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    .mail {
+        grid-area: 2 / 1 / 3 / 3;
+
+    }
+
+    .selector {
+        grid-area: 3 / 1 / 4 / 3;
+        padding: 20px 30px;
+        color: var(--color-blue-normal);
+        border: 0;
+    }
+
+    .text {
+        grid-area: 4 / 1 / 6 / 3;
+    } 
+    
+    input{
+        /*display: inline-block;
+        max-width: 19rem;
+        border: 0;
+        border-radius: 8px;
+        font-size: 20px;
+        line-height: 24px;*/
+        
+        padding: 20px 30px;
+        color: var(--color-blue-normal);
+        background-color: #FFFFFF;
+        border: 0;
+        border-radius: 10px;
+    }
+
+    input::placeholder {
+        font-size: 16px;
+        color: var(--color-blue-normal);
+    }
+
+    button{
+        /*display: inline-block;
+        max-width: 400px;
+        padding: 0.750rem 5rem;
+        font-size: 24px;
+        line-height: 29px;
+        border-radius: 8px;
+        color: white;
+        background-color: black;*/
+        padding: 20px 30px;
+        color: #fff;
+        background-color: var(--color-blue-normal);
+        border: 0;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
+
+.personal {
+    font-size: 12px;
+    line-height: 15px;
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper {
+        justify-content: space-around;
+        padding: 15px 21px;
+
+    }
+
+    .description {
+        max-width: 200px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .past {
+        font-size: 0.75rem;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-right: 20px;
+
+        .name, .phone, .mail, .text , .selector {
+            max-width: 6rem;
+            padding: 0.5rem;
+            border-radius: 3px;
+            font-size: 12px;
+            line-height: 19px;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 12px;
+            line-height: 19px;
+        }
+
+        
+    }
+
+    .personal {
+        display: inline-block;
+        margin: 10px;
+        font-size: 8px;
+        line-height: 10px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .wrapper {
+        padding: 30px;
+    }
+
+    .description {
+
+    }
+
+    .subtitle {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .past {
+
+    }
+
+    .form {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+        .name {
+            grid-area: 1 / 1 / 2 / 2;
+        }
+    
+        .phone {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+    
+        .mail {
+            grid-area: 3 / 1 / 4 / 2;
+    
+        }
+    
+        .selector {
+            grid-area: 4 / 1 / 5 / 2;
+            padding: 20px 30px;
+            color: var(--color-blue-normal);
+            border: 0;
+        }
+    
+        .text {
+            grid-area: 5 / 1 / 6 / 2;
+        } 
+
+        label {
+            display: none;
+        }
+        
+        .inputs {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .name, .phone, .mail, .text , .selector {
+            font-size: 16px;
+            line-height: 19px;
+            max-width: 12rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        select {
+            margin: 10px 0;
+        }
+
+        button {
+            max-width: 15rem;
+            padding: 0.5rem;
+            font-size: 16px;
+            line-height: 19px;
+        }
+    }
+
+    .personal {
+        display: inline-block;
+        max-width: 25rem;
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1440px) {
+    .wrapper {
+        margin: 0;
+    }
+
+    .subtitle {
+        margin-top: 0;
+    }
+
+    .form {
+        .inputs {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        select {
+            max-width: 15rem;
+        }
+
+        button {
+            
+            padding: 1rem ;
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+
+    .personal {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+

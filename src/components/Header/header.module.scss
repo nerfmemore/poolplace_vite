@@ -1,0 +1,91 @@
+.background {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: var(--color-blue-normal);
+}
+
+.number {
+    color: var(--color-grey);
+    margin: 100px;
+}
+
+.selector {
+    width: 350px;
+    margin: 100px;
+    padding: 15px 39px;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgba($color: #8FCDEE, $alpha: 0.5);
+
+    option {
+        background-color: rgba($color: var(--color-blue-normal), $alpha: 1.0);
+    }
+}
+
+.logo {
+    width: 200px;
+    height: 70px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    
+    gap: 30px;
+}
+
+.point {
+    color: white;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.button {
+    background-color: white;
+    border: 0;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 576px) {
+    .number {
+        font-size: 10px;
+        margin: 10px;
+    }
+
+    a[href^="tel:"] {
+        font-size: 12px;
+    }
+
+    .selector {
+        width: 150px;
+        margin: 20px;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .logo {
+        width: 125px;
+        height: 35px;
+    }
+
+    .button {
+        font-size: 10px;
+        padding: 0.5rem 0.75rem;
+        border-radius: 5px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .number {
+        font-size: 16px;
+    }
+}
