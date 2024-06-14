@@ -19,6 +19,9 @@ function Footer(){
             <div className={styles.social}>
                 <h3 className={styles.subtitle}>Контакты</h3>
                 <span className={styles.span}>Киевское шоссе, 22-й километр, 4, стр. 1, корп. А</span>
+                <span className={styles.span}>C 10:00 до 21:00</span>
+                <span className={styles.span}>info@poolplace.ru</span>
+                <span className={styles.span}>+74991137070</span>
             </div>
         </section>
     )

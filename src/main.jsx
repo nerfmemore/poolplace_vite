@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { CityProvider } from './CityContext.jsx';
 import App from './App.jsx'
 import 'normalize.css'
 import './styles/index.scss'
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
 ])
 
 const client = new ApolloClient({
-  uri: 'http://forpool.ru/graphql',
+  uri: 'https://forpool.ru/graphql',
   cache: new InMemoryCache(),
 })
 
@@ -67,6 +68,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <Router>
+        <CityProvider defaultCity='Москва'>
         <Routes>
           <Route path='/' element={<MainPage />}></Route>
           <Route path='/Catalog' element={<Catalog />}></Route>
@@ -78,6 +80,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/Promo' element={<Promo />}></Route>
           <Route path='/Promo/:id' element={<SinglePromo />}></Route>
         </Routes>
+        </CityProvider>
       </Router>
     </ApolloProvider>
   </React.StrictMode>,

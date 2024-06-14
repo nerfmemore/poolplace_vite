@@ -41,11 +41,11 @@ function SingleProject (props) {
           {props.data.map(image => (
               <img key={image} className={styles.image} src={image} style={{translate: `${-100 * slideId}%`}}></img>
             ))}
-          <button className={`${styles.button} ${styles.left_arr}`} onClick={prevSlide}><svg xmlns="http://www.w3.org/2000/svg" width="7.41" height="12" viewBox="0 0 7.41 12">
+          <button className={`${styles.button} ${styles.left_arr}`} onClick={prevSlide}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.41 12">
 <path id="ic_chevron_right_24px" d="M1.41,0,0,1.41,4.58,6,0,10.59,1.41,12l6-6Z" transform="translate(7.41 12) rotate(-180)" fill="#f6f6f6"/>
 </svg>
 </button>
-          <button className={`${styles.button} ${styles.right_arr}`} onClick={nextSlide}><svg xmlns="http://www.w3.org/2000/svg" width="7.41" height="12" viewBox="0 0 7.41 12">
+          <button className={`${styles.button} ${styles.right_arr}`} onClick={nextSlide}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.41 12">
 <path id="ic_chevron_right_24px" d="M1.41,0,0,1.41,4.58,6,0,10.59,1.41,12l6-6Z" fill="#f6f6f6"/>
 </svg>
 </button>

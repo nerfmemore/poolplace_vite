@@ -27,7 +27,7 @@ function PromoSlider() {
     if (error) return <h1>{error}</h1>
 
     const slides = data.posts.nodes;
-    console.log(data)
+    console.log(slides)
     const nextSlide = () => {
         setCurrentSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1))
     }

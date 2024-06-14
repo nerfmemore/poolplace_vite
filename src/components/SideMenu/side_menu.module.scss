@@ -28,14 +28,20 @@
                 color: #707070;
                 border-radius: 11px;
                 transition: background-color 200ms ease-in-out;
+                
+                svg {
+                    fill: currentColor;
+                }
             }
 
             a.active {
                 color: #ffffff;
                 background-color: var(--color-blue-normal);
-
+                
                 svg {
-                    fill: white;
+                    fill: currentColor;
+                    transform: rotate(-90deg);
+                    
                 }
             }
 
@@ -56,16 +62,20 @@
 }
 
 .navclosed {
+    position: relative;
     height: 100%;
-    width: 0;
-    position: fixed;
+    max-width: 250px;
+    
     z-index: 1;
     top: 0;
-    left: 0;
+    
     background-color: #2A9FDE;
-    overflow: hidden;
+    
     padding-top: 1.5rem;
-    display: none;
+    
+
+    
+
     ul {
         padding: 0;
 
@@ -141,6 +151,7 @@ a[href^="tel:"] {
     padding: 22px 41px;
     font-size: 12px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .modal, .overlay {
@@ -175,10 +186,10 @@ a[href^="tel:"] {
     right: 3%;
     cursor: pointer;
     
-    svg {
-        color: black;
-    }
+    
 }
+
+
 
 .container {
     display: flex;
@@ -188,7 +199,11 @@ a[href^="tel:"] {
 
 .what {
     position: relative;
-    
+}
+
+.what2 {
+    position: absolute;
+    left: -250px;
 }
 
 .menu_button {
@@ -200,13 +215,69 @@ a[href^="tel:"] {
 
 .closer {
     position: absolute;
-    top: 70px; 
-    right: -70px;
+    top: 12%; 
+    right: 5%;
     z-index: 1;
+    background: none;
+    border: 0;
+
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+
+.ww {
+    position: absolute;
+    z-index: 3;
+    right: -20%;
+    top: 10%;
+    width: 35px;
+    height: 35px;
+    
+}
+
+@media screen and (max-width: 992px) {
+    
+
+    .navigation {
+        position: fixed;
+        
+        max-width: 100%;
+        width: 100%;
+        background-color: var(--color-grey);
+        
+        .img {
+            width: 100%;
+        }
+
+        
+    }
+
+    
+    .closer {
+        z-index: 3;
+    }
 }
 
 @media screen and (min-width: 992px) {
+
+    .navclosed {
+        
+        
+        left: -100%;
+        
+        overflow: hidden;
+        
+        display: none;
+    }
+
     .closer {
+        display: none;
+    }
+
+    .ww {
         display: none;
     }
 }

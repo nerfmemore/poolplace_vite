@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     gap: 130px;
+    
     padding: 61px 84px;
     margin: 0;
     background-color: var(--color-blue-light);
@@ -30,6 +31,7 @@
 }
 
 .form {
+    
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -50,14 +52,25 @@
 
     .selector {
         grid-area: 3 / 1 / 4 / 3;
-        padding: 20px 30px;
+        
         color: var(--color-blue-normal);
         border: 0;
     }
 
     .text {
         grid-area: 4 / 1 / 6 / 3;
+        padding: 20px 30px;
+        color: var(--color-blue-normal);
+        background-color: #FFFFFF;
+        border: 0;
+        border-radius: 10px;
+        resize: none;
     } 
+
+    .text::placeholder {
+        font-size: 16px;
+        color: var(--color-blue-normal);
+    }
     
     input{
         /*display: inline-block;
@@ -102,9 +115,13 @@
     line-height: 15px;
 }
 
+.singleValue {
+    padding-left: 50px;
+}
+
 @media screen and (max-width: 576px) {
     .wrapper {
-        justify-content: space-around;
+        gap: 5px;
         padding: 15px 21px;
 
     }
@@ -126,14 +143,23 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-        margin-right: 20px;
+        
 
         .name, .phone, .mail, .text , .selector {
-            max-width: 6rem;
+            
             padding: 0.5rem;
             border-radius: 3px;
             font-size: 12px;
             line-height: 19px;
+        }
+
+        input::-webkit-input-placeholder {
+            font-size: 12px;
+            line-height: 19px;
+        }
+        .text {
+            height: 100px;
+            
         }
 
         button {
@@ -142,6 +168,9 @@
             line-height: 19px;
         }
 
+        .selector {
+            padding: 0;
+        }
         
     }
 
@@ -253,6 +282,10 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+        }
+        
+        .name, .phone {
+            max-width: 10rem;
         }
 
         input, select {

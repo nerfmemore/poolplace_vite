@@ -46,19 +46,23 @@ function Blabla() {
       let normalizedContent = content.replace(/\s+/g, ' ').trim();
       const parser = new DOMParser();
       const block  = parser.parseFromString(normalizedContent, 'text/html');
-      console.log(typeof normalizedContent)
+      console.log(normalizedContent)
       const stats = normalizedContent.match(/<[^>]*class="([^"]*)list([^"]*)"[^>]*>/g)
 
+
+      const div = document.createElement('div');
+      div.innerHTML = normalizedContent;
+      const ul = div.querySelector('.list');
       
       const result = normalizedContent.match(/<ul>[\s\S]*?<\/ul>/);
-      console.log(stats)
+      console.log(ul)
       
         return (
           <Link to={`/Pools/${post.id}`} state={post.id}>
             <div className={styles.inner} key={post.id}>
                 <h2 className={styles.subtitle}>{post.title}</h2>
                 <img className={styles.image} src={file} alt='Рендер бассейна' />
-                
+                {/*<div className={styles.ul} dangerouslySetInnerHTML={{ __html: ul.outerHTML}}></div>*/}
                 {/*<div className={styles.block} dangerouslySetInnerHTML={{ __html: normalizedContent}} />*/}
             </div>
           </Link>

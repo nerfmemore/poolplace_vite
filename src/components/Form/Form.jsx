@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useCity } from '../../CityContext';
+import Select from 'react-select';
 import axios from 'axios';
 import styles from '../Form/form.module.scss';
 
@@ -31,28 +33,64 @@ async function handleSubmi(event){
 }
 
 function Form(){
-    const [formData, setFormData] = useState({
-        name: '',
-        phone: '',
-        email: '',
-        city: '',
-        comment: '',
-    })
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [city, setCity] = useState('Москва');
+    const [comment, setComment] = useState('');
+    const { selectedCity, setSelectedCity } = useCity();
 
-    const handleChange = (event) => {
-        console.log(event)
-        setFormData({ ...formData, [event.target.name]: event.target.value});
+    const handleChange = (selectedOption) => {
+        setSelectedCity(selectedOption.value)
     }
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const options = [
+        {value: 'Москва', label: 'Москва', color: '#2699FB'},
+        {value: 'Санкт-Петербург', label: 'Санкт-Петербург', color: '#2699FB'}
+    ]
 
-        try {
-            const res = await axios.post('/send-email', formData);
-            console.log(res.data);
-        } catch (err){
-            console.error(err);
+    const colorStyles = {
+        control: (styles) => ({ ...styles, border: 'none', borderRadius: '5px',color: 'blue', backgroundColor: 'white', boxShadow: 'none', cursor: 'pointer'}),
+        option: (styles, {data, isDisabled, isFocused, isSelected}) => {
+            console.log('option', data, isDisabled, isFocused, isSelected, styles);
+            return { 
+                ...styles, 
+                backgroundColor: 'white', 
+                color: data.color, 
+                border: 'none', 
+                cursor: 'pointer',
+                ':hover': {
+                    backgroundColor: '#F6F6F6',
+                }
+            };
+        },
+        singleValue: (styles) => {
+            return {
+                ...styles,
+                className: styles.singleValue,
+                color: '#2699FB',
+                paddingLeft: '20px'
+            }
         }
+    }
+
+    const handleCityChange = (e) => {
+        setSelectedCity(e.target.value);
+    }
+
+    function sendMail(){
+        if (name && phone && email && city && comment) {
+            axios.post('/send_email', {
+                name,
+                phone,
+                email,
+                selectedCity,
+                comment
+            }).then(() => alert('Message Send Succesfuly'))
+            .catch(() => alert('Something wrong'));
+            return;
+        }
+        return alert('Заполните все поля')
     }
 
     return (
@@ -62,27 +100,27 @@ function Form(){
             <p className={styles.past}>Отдел продаж нашей компании свяжется с Вами, как только получит заявку. Уверены, что общение с сотрудниками порадует Вас и оставит хорошее впечатление.</p>
             <p className={styles.past}>Пн-Сб: 09:00 - 21:00<br/>Воскресенье выходной <br/><br />Контакты отдела продаж: <br/>sell@poolplace.ru <br/>+7 (499) 113-70-70</p>
             </div>
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form className={styles.form}>
                 
                 <label htmlFor="Name"></label>
-                <input className={styles.name} type="text" id='Name' name='name' placeholder='Ваше имя' onChange={handleChange} required/>
+                <input className={styles.name} type="text" id='Name' name='name' placeholder='Ваше имя' onChange={e => setName(e.target.value)} required/>
                 
                 <label htmlFor="Phone"></label>
-                <input className={styles.phone} type="text" id='Phone' name='phone' placeholder='Ваш номер телефона' value={formData.phone} onChange={handleChange} required/>
+                <input className={styles.phone} type="text" id='Phone' name='phone' placeholder='Ваш номер телефона' onChange={e => setPhone(e.target.value)} required/>
                 
                 <label htmlFor="Email"></label>
-                <input className={styles.mail} type='email' id='Email' name='email' placeholder='Ваш e-mail' value={formData.email} onChange={handleChange} required></input>
+                <input className={styles.mail} type='email' id='Email' name='email' placeholder='Ваш e-mail' onChange={e => setEmail(e.target.value)} required></input>
                 
-                
-                <select className={styles.selector} name='City'>
-                    <option value="Moscow">Москва</option>
-                    <option value="Saint-Petersburg">Санкт-Петербург</option>
-                </select>
+                <Select onChange={handleChange} className={styles.selector} options={options} isSearchable={false} defaultValue={{value: selectedCity, label: selectedCity}} value={{value: selectedCity, label: selectedCity}} styles={colorStyles}></Select>
+                {/*<select className={styles.selector} name='City' value={selectedCity} onChange={handleCityChange}>
+                    <option value="Москва">Москва</option>
+                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+    </select>*/}
 
                 <label htmlFor="Text"></label>
-                <input className={styles.text} type='text' id='Text' name='comment' placeholder='Комментарий' value={formData.comment} onChange={handleChange} required></input>
+                <textarea className={styles.text} type='text' id='Text' name='comment' placeholder='Комментарий' onChange={e => setComment(e.target.value)}></textarea>
 
-                <button type='submit'>Отправить заявку</button>
+                <button type='submit' onClick={() => sendMail()}>Отправить заявку</button>
             </form>
             {/*<span className={styles.personal}>Нажимая кнопку “Отправить заявку”, 
             я соглашаюсь с условиями на передачу

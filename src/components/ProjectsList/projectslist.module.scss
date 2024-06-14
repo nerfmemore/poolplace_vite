@@ -1,9 +1,10 @@
 .wrapper {
     max-width: 100%;
-    padding: 0 40px;
+    padding: 40px;
 }
 
 .inner {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -26,6 +27,7 @@
         width: 85%;
         height: 50%;
         overflow: hidden;
+        border-radius: 10px;
     }
 
     .button {
@@ -34,7 +36,8 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        padding: 1rem;
+        width: 12px;
+        padding: 1.5rem;
         cursor: pointer;
         transition: background-color 100ms ease-in-out;
     }
@@ -49,8 +52,11 @@
 }
 
 .grid {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    width: 100%;
 }
 
 .featured {
@@ -115,7 +121,7 @@
 }
 
 .image {
-    object-fit: contain;
+    
     width: 100%;
     height: 100%;
     display: block;
@@ -152,5 +158,114 @@
 
     :hover {
         background-color: rgba($color: #3AAACF, $alpha: 0.3);
+    }
+}
+
+@media screen and (max-width: 2440px) {
+    .inner{ 
+        .cont {
+            width: 100%;
+            height: 100%;
+        }
+
+        .subtitle {
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .button {
+            
+        } 
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper {
+        padding: 20px;
+    }
+    .inner {
+        width: 100%;
+        max-height: 360px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .wrapper {
+        padding: 20px;
+    }
+    .inner {
+        width: 100%;
+        max-height: 560px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+@media screen and (min-width: 678px) and (max-width: 768px) {
+    .inner {
+        max-height: 320px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .wrapper {
+        padding: 20px;
+    }
+    .inner {
+        width: 100%;
+        max-height: 560px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+@media screen and (min-width: 850px) and (max-width: 992px) {
+    .inner {
+        max-height: 420px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1440px) {
+    .inner {
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+}
+
+@media screen and (min-width: 1240px) and (max-width: 1440px) {
+    .inner {
+        width: 100%;
+        max-height: 100%;
+    }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1605px) {
+    .inner {
+        width: 100%;
+        max-height: 420px;
     }
 }
