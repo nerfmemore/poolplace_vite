@@ -4,25 +4,23 @@ import { useQuery, gql } from '@apollo/client';
 
 const GET_PROJECTS = gql`
 query Projects {
-    posts(where: {categoryName: "Project"}) {
-      nodes {
-        id
-        title
-        content
-        featuredImage {
-          node {
-            link
-          }
+  posts(where: {categoryName: "Project"}, first: 100) {
+    nodes {
+      id
+      title
+      content
+      featuredImage {
+        node {
+          link
         }
       }
     }
   }
+}
 `;
 
 function SingleProject (props) {
   const [slideId, setSlideId] = useState(0);
-
-  console.log(props);
 
   const slides = props.data;
 
@@ -33,6 +31,11 @@ function SingleProject (props) {
   const prevSlide = () => {
     setSlideId((prevSlide) => (prevSlide === 0 ? slides.length - 1 : prevSlide - 1))
   }
+
+  const goToSlide = (slideIndex) => {
+    setSlideId(slideIndex);
+  }
+
 
 
   return (
@@ -50,7 +53,14 @@ function SingleProject (props) {
 </svg>
 </button>
           </div>
-          <h4 className={styles.subtitle}>{props.title}</h4>
+          <div className={styles.foot}>
+            <h4 className={styles.subtitle}>{props.title}</h4>
+            <div className={styles.slideDots}>
+                        {slides.map((slide, slideIndex) => {
+                          return <div key={slideIndex} className={slideIndex === slideId ? styles.dotActiveStyle : styles.dotStyle} onClick={() => goToSlide(slideIndex)}>●</div>
+                        })}
+            </div>
+          </div>
       </div>
   )
 }
@@ -62,12 +72,13 @@ function ProjectsList() {
     const [modalData, setModalData] = useState(null);
     const [slideId, setSlideId] = useState(0);
 
-    if (loading) return <h1>Loading</h1>;
+    if (loading) return <h1></h1>;
     if (error) return <h1>{error}</h1>;
-    
+    //console.log(data)
     const toggleModal = (data) => {
       setModalData(data)
       setSlideId(0);
+      {/*console.log(modalData)*/}
     }
     
     if (modalData != null) {
@@ -81,8 +92,9 @@ function ProjectsList() {
     function Modal(data){
 
       const images = data.data.map(image => {
-        return image.props.src;
+        return image;
       });
+      
       
       return (
         <div className={styles.modal}>
@@ -103,7 +115,7 @@ function ProjectsList() {
       )
     }
 
-
+    //console.log(data)
     const posts = data.posts.nodes.map((post) => {
       
       //const file = post.featuredImage.node.link;//
@@ -117,14 +129,14 @@ function ProjectsList() {
       const imageList = Array.from(nodeList);
       const lol = imageList.map((image) => {
         return (
-          <img className={styles.image} src={image.src} onClick={() => changeSlider()}/>
+          <img loading="lazy" className={styles.image} src={image.src} onClick={() => changeSlider()}/>
         )
       })
-      console.log(lol)
+      
       const kek = lol.map(image => {
         return image.props.src
       })
-      
+      //console.log(kek)
       
       return (
           <>

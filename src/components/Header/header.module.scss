@@ -56,6 +56,16 @@
     font-weight: 700;
 }
 
+.closer {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    margin: 0 1rem;
+    svg {
+
+    }
+}
+
 @media screen and (max-width: 576px) {
     .number {
         font-size: 10px;
@@ -93,7 +103,7 @@
 
 @media screen and (min-width: 577px) and (max-width: 815px) {
     a[href^="tel:"] {
-        margin: 60px;
+        margin: 30px;
         
         font-size: 12px;
     }
@@ -108,5 +118,11 @@
     a[href^="tel:"] {
         margin: 80px;
         font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .closer {
+        display: none;
     }
 }

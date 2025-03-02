@@ -78,7 +78,7 @@ p {
 
 a {
     text-decoration: none;
-    color: black;
+    //color: black;
 
     
 }
@@ -142,7 +142,7 @@ summary {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 20px;
+    gap: 2.5rem;
     color: var(--color-blue-normal);
 }
 
@@ -196,6 +196,12 @@ summary {
     }
 }
 
+.price { 
+    
+}
+
+
+
 .button_contact {
     display: flex;
     justify-content: center;
@@ -212,3 +218,9 @@ summary {
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .pool_wrapper {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "../components/Footer/Footer";
 import Form from "../components/Form/Form";
 import FullServices from "../components/FullServices";
@@ -6,6 +7,8 @@ import SideMenu from "../components/SideMenu/SideMenu";
 
 
 function OurServices(){
+    const [isOpen, setIsOpen] = useState(document.documentElement.clientWidth < 1024 ? false : true);
+    
     return (
         <div className="main-wrapper">
         {/*<SideMenu></SideMenu>*/}

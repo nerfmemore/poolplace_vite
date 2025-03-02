@@ -6,27 +6,27 @@ import Form from "../Form/Form";
 
 
 
-function SideMenu() {
+function SideMenu(props) {
     const [isOpen, setIsOpen] = useState(document.documentElement.clientWidth < 1024 ? false : true);
     const [isModal, setModal] = useState(false);
 
     const toggleModal = () => {
         setModal(!isModal);
-        console.log(isModal)
+        //console.log(isModal)
     }
 
     const toggleOpener = () => {
-      setIsOpen(!isOpen);
-      console.log(document.documentElement.clientWidth)
+      props.setIsOpen(!props.isOpen);
+      //console.log(document.documentElement.clientWidth)
     }
-
+    
     if (isModal) {
       document.body.classList.add('active-modal');
     } else {
       document.body.classList.remove('active-modal');
     }
 
-    if (document.documentElement.clientWidth < 992 && isOpen) {
+    if (document.documentElement.clientWidth < 992 && props.isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -34,16 +34,20 @@ function SideMenu() {
 
     return (
     <>
-    <div className={isOpen ? styles.what : styles.what2} >{/*<button className={styles.menu_button} onClick={toggleOpener}>Меню</button>*/}
     
-    <div className={isOpen ? styles.navigation : styles.navclosed}>
+      
+    <div className={props.isOpen ? styles.what : styles.what2} >{/*<button className={styles.menu_button} onClick={toggleOpener}>Меню</button>*/}
     
-    <div className={styles.ww} onClick={toggleOpener}>
-    <svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#2699FB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+    <div className={props.isOpen ? styles.navigation : styles.navclosed}>
+    <div className={styles.menu_operen_wrapper}>
+      {/*<div className={styles.ww} onClick={toggleOpener}>
+      <svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#2699FB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+      </div>*/}
     </div>
+    
     <button className={styles.closer} onClick={toggleOpener}>
       
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Menu / Close_LG"> <path id="Vector" d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" stroke="#2A9FDE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Menu / Close_LG"> <path id="Vector" d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" stroke="#2A9FDE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g> </g></svg>
       </button>
         <img className={styles.img} src='/logo.svg' alt='logo'></img>
         <div className={styles.wrapper}>
@@ -83,7 +87,7 @@ function SideMenu() {
           <div className={styles.content}>
             <div className={styles.container}><Form></Form></div>
             <div className={styles.but} onClick={toggleModal}>
-              <svg height='24' width='24' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 5L5 19M5.00001 5L19 19" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              <svg height='24' width='24' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 5L5 19M5.00001 5L19 19" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
 </div>    
           </div>
         </div>)}

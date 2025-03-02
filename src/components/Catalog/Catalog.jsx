@@ -12,24 +12,24 @@ function OurCatalog() {
                 <div className={styles.position}>
                     <Link to={'/Pools'} state={'Composite'}>
                     <div className={styles.inner}>
-                    <img className={styles.image} src='/pool_photo.jpg' alt="Фотография бассейна" />
+                    <img className={styles.image} src='/zima3.jpg' alt="Фотография бассейна" />
                     <h2 className={styles.subtitle}>Композитные бассейны</h2>
-                    </div>
-                    </Link>
-                </div>
-                <div className={styles.position}>
-                    <Link to={'/Pools'} state={'Hydromassage'}>
-                    <div className={styles.inner}>
-                    <img className={styles.image} src="/pool_photo.jpg" alt="" />
-                    <h2 className={styles.subtitle}>Гидромассажные бассейны</h2>
                     </div>
                     </Link>
                 </div>
                 <div className={styles.position}>
                     <Link to={'/Pools'} state={'SPA'}>
                     <div className={styles.inner}>
-                    <img className={styles.image} src="/pool_photo.jpg" alt="" />
-                    <h2 className={styles.subtitle}>СПА</h2>
+                    <img className={styles.image} src="/zima2.jpg" alt="" />
+                    <h2 className={styles.subtitle}>SPA</h2>
+                    </div>
+                    </Link>
+                </div>
+                <div className={styles.position}>
+                    <Link to={'/Pools'} state={'Pavillione'}>
+                    <div className={styles.inner}>
+                    <img className={styles.image} src="/zima1.jpg" alt="" />
+                    <h2 className={styles.subtitle}>Павильоны</h2>
                     </div>
                     </Link>
                 </div>

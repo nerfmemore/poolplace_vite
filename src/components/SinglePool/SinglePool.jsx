@@ -17,7 +17,11 @@ query SinglePromo($id: ID!) {
 function SingleProject (props) {
   const [slideId, setSlideId] = useState(0);
 
-  console.log(props);
+  useEffect (() => {
+    setTimeout(() => setSlideId(0), 50);
+  },[])
+
+  //console.log(props);
 
   const slides = props.data;
 
@@ -32,14 +36,16 @@ function SingleProject (props) {
   const changeSlide = (event) => {
     setSlideId(event)
   }
-
+  console.log(slides.map((image, index) => {
+    return index;
+  }))
 
   return (
     <div className={style.wrap}>
     <div className={style.inner}>
           
-          {props.data.map(image => (
-              <img key={image} className={style.image} src={image} style={{translate: `${-100 * slideId}%`}}></img>
+          {slides.map((image, index) => (
+              <img key={index} className={style.image} src={image} style={{translate: `${-100 * slideId}%`}}></img>
             ))}
           <button className={`${style.slider_btn} ${style.left_arrow}`} onClick={prevSlide}><svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 7.41 12">
   <path id="ic_chevron_right_24px" d="M1.41,0,0,1.41,4.58,6,0,10.59,1.41,12l6-6Z" transform="translate(7.41 12) rotate(-180)" fill="#f6f6f6"/>
@@ -49,10 +55,17 @@ function SingleProject (props) {
   <path id="ic_chevron_right_24px" d="M1.41,0,0,1.41,4.58,6,0,10.59,1.41,12l6-6Z" fill="#f6f6f6"/>
 </svg>
 </button>
-
+            
 
           
       </div>
+
+            <div className={style.image_gallery}>
+              
+                {props.data.map((image, index) => (
+                  <img key={index} className={style.image_small} src={image} onClick={() => changeSlide(index)}></img>
+                ))} 
+            </div>
       {/*<div className={style.footer} >
                 {props.data.map((image, index) => (
                   <img className={style.image_small} src={image} onClick={() => changeSlide(index)}></img>
@@ -83,8 +96,8 @@ function SinglePool(){
             id: `${state}`,
         }
       });
-      console.log(state)
-    if (loading) return <h1>Loading</h1>;
+      //console.log(state)
+    if (loading) return <h1></h1>;
     if (error) return <h1>{error}</h1>
     
     const clickHandler = (e) => {
@@ -113,7 +126,7 @@ function SinglePool(){
     
     
 
-    console.log(kek)
+    //console.log(kek)
     return (
         <>
         <div className={style.wrapper}>

@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 500px;
+    max-width: 760px;
     height: 480px;
     
     background: linear-gradient(var(--color-blue-soft), var(--color-blue-normal));
@@ -54,7 +54,7 @@
 .grid {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 25px;
     width: 100%;
 }
@@ -121,7 +121,7 @@
 }
 
 .image {
-    
+    object-fit: cover;
     width: 100%;
     height: 100%;
     display: block;
@@ -161,6 +161,39 @@
     }
 }
 
+.foot {
+    position: absolute;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.slideDots {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0.5;
+    bottom: 1rem;
+}
+
+.dotStyle {
+    cursor: pointer;
+    margin: 0 3px;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.dotActiveStyle {
+    cursor: pointer;
+    margin: 0 3px;
+    font-size: 1.75rem;
+    color: white;
+}
+
 @media screen and (max-width: 2440px) {
     .inner{ 
         .cont {
@@ -169,8 +202,8 @@
         }
 
         .subtitle {
-            position: absolute;
-            bottom: 20px;
+            
+            
         }
 
         .button {
@@ -267,5 +300,11 @@
     .inner {
         width: 100%;
         max-height: 420px;
+    }
+}
+
+@media screen and (max-width: 864px) {
+    .slideDots {
+        display: none;
     }
 }

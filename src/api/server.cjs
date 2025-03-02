@@ -40,9 +40,9 @@ app.post('/send-email', (res, req) => {
 });
 
 
-/*app.listen(5173, () => {
+app.listen(5173, () => {
     console.log(`Сервер запущен на порту 5000`);
-});*/
+});
 
 
 /*const sendMail = async (transporter, mailOptions) => {

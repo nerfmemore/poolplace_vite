@@ -5,16 +5,16 @@ function Footer(){
         <section className={styles.wrapper}>
             <div className={styles.social}>
                 <h3 className={styles.subtitle}>Информация о юр. лице</h3>
-                <span>ООО "Никита, Даня и КО"</span>
-                <span className={styles.span}>ОГРН 11111111111111111</span>
+                <span>ООО "Новопул"</span>
+                <span className={styles.span}>ОГРН 1207700104930</span>
                 <span className={styles.span}>ИНН 7751178079</span>
+                <span className={styles.span}>КПП 775101001</span>
             </div>
             <div className={styles.social}>
                 <h3 className={styles.subtitle}>Соцсети</h3>
-                <span className={styles.span}>YouTube</span>
-                <span className={styles.span}>Instagram</span>
-                <span className={styles.span}>VK</span>
-                <span className={styles.span}>Telegram</span>
+                
+                <a href="https://wa.me/message/MXV6YQDEUB4VJ1" target="_blank" rel="noopener noreferrer"><span className={styles.span}>WhatsApp</span></a>
+                <a href="https://t.me/poolplace/" target="_blank" rel="noopener noreferrer"><span className={styles.span}>Telegram</span></a>
             </div>
             <div className={styles.social}>
                 <h3 className={styles.subtitle}>Контакты</h3>

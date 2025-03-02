@@ -4,7 +4,7 @@ function OurContacts(){
     return (
         <div className={styles.wrapper}>
             <div className={styles.map_block}>
-                <iframe className={styles.map} src="https://yandex.ru/map-widget/v1/?um=constructor%3A61c53084efe7a0de8275c8fe0b5680fbbbbf28e9627ec992ff6fe491dc56b37d&amp;source=constructor" width="100%" height="600" frameborder="0">
+                <iframe className={styles.map} src="https://yandex.ru/map-widget/v1/?um=constructor%3A61c53084efe7a0de8275c8fe0b5680fbbbbf28e9627ec992ff6fe491dc56b37d&amp;source=constructor" width="100%" height="400" frameborder="0">
                 </iframe>
                 <div className={styles.contacts}>
                 <h2 className={styles.subtitle}>Наш офис:</h2>

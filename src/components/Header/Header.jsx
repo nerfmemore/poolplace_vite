@@ -3,15 +3,20 @@ import { useCity } from '../../CityContext';
 import Select from 'react-select';
 import { Placeholder, SingleValue } from 'react-select/animated';
 
-function Header(){
-    const {selectedCity, setSelectedCity} = useCity();
+function Header(props){
+    const {city, setCity} = useCity();
+
+    const toggleOpener = () => {
+        props.setIsOpen(!props.isOpen);
+        
+      }
 
     const handleCityChange = (e) => {
-        setSelectedCity(e.target.value);
+        setCity(e.target.value);
     }
 
     const handleChange = (selectedOption) => {
-        setSelectedCity(selectedOption.value)
+        setCity(selectedOption.value)
     }
 
     const options = [
@@ -26,7 +31,7 @@ function Header(){
         }),
         control: (styles) => ({ ...styles,  border: 'none', borderRadius: '5px',color: 'white', backgroundColor: 'rgba(143, 205, 238, 0.5)', boxShadow: 'none', cursor: 'pointer'}),
         option: (styles, {data, isDisabled, isFocused, isSelected}) => {
-            console.log('option', data, isDisabled, isFocused, isSelected, styles);
+            //console.log('option', data, isDisabled, isFocused, isSelected, styles);
             return { 
                 ...styles, 
                 backgroundColor: 'white', 
@@ -47,6 +52,9 @@ function Header(){
     return (
         <>
             <div className={styles.background}>
+                <div className={styles.closer} onClick={toggleOpener}>
+                    <svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
+                </div>
                 <a href='tel:+74991137070' className={styles.number}>+7 (499) 113-70-70</a>
                {/*<img src='/logo.svg' alt='logo' className={styles.logo}></img>*/}
                {/*<div className={styles.menu}>
@@ -59,7 +67,7 @@ function Header(){
                 </div>*/}
                 {/*<button className={styles.button}>Оставить заявку</button>*/}
                 {/*<div className={styles.number}>Москва</div>*/}
-                <Select className={styles.selector} options={options} onChange={handleChange} isSearchable={false} defaultValue={{value: selectedCity, label: selectedCity}} value={{value: selectedCity, label: selectedCity}} styles={colorStyles}/>
+                <Select className={styles.selector} options={options} onChange={handleChange} isSearchable={false} defaultValue={{value: city, label: city}} value={{value: city, label: city}} styles={colorStyles}/>
                 {/*<select name="City" id="123" className={styles.selector} value={selectedCity} onChange={handleCityChange}>
                     <option value="Москва">Москва</option>
                     <option value="Санкт-Петербург">Санкт-Петербург</option>

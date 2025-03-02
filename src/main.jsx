@@ -58,7 +58,7 @@ const router = createBrowserRouter([
 ])
 
 const client = new ApolloClient({
-  uri: 'https://forpool.ru/graphql',
+  uri: 'https://cx83588-wordpress-0q6p2.tw1.ru/graphql',
   cache: new InMemoryCache(),
 })
 
